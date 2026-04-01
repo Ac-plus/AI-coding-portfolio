@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>会议室预订系统 MVP</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Meeting Room MVP</p>
+          <h1>会议室预订系统</h1>
+          <p class="intro">
+            最小可运行版本，仅支持查看会议室、创建预订、取消预订与冲突校验。
+          </p>
+        </div>
+        <div id="message" class="message"></div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>发起预订</h2>
+          <form id="booking-form" class="form">
+            <label>
+              用户 ID
+              <input type="text" name="user_id" placeholder="例如 alice" required />
+            </label>
+            <label>
+              会议主题
+              <input type="text" name="title" placeholder="例如 项目周会" required />
+            </label>
+            <label>
+              会议室
+              <select name="room_id" id="room-select" required></select>
+            </label>
+            <label>
+              开始时间
+              <input type="datetime-local" name="start_time" required />
+            </label>
+            <label>
+              结束时间
+              <input type="datetime-local" name="end_time" required />
+            </label>
+            <button type="submit">提交预订</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>会议室列表</h2>
+          <ul id="rooms-list" class="room-list"></ul>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>预订记录</h2>
+          <button id="refresh-button" class="secondary">刷新</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>会议主题</th>
+                <th>用户</th>
+                <th>会议室</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="bookings-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
