@@ -1,0 +1,19 @@
+{
+  "id": "e215871b5cda4a598f2aa09e4b5a3bab",
+  "problem_id": "two-sum",
+  "status": "Time Limit Exceeded",
+  "score": 0,
+  "passed": 0,
+  "total": 3,
+  "compile_output": "",
+  "results": [
+    {
+      "case_index": 0,
+      "status": "Time Limit Exceeded",
+      "expected": "[0,1]",
+      "actual": null
+    }
+  ],
+  "source_code": "#include <vector>\n#include <unordered_map>\nusing namespace std;\n\nclass Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        while (1) {int i = 1;}\n\n        return {1};\n    }\n};",
+  "created_at": "2026-03-31T13:20:11.412250+00:00"
+}

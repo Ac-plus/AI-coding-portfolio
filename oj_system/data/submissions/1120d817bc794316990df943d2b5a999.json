@@ -1,0 +1,31 @@
+{
+  "id": "1120d817bc794316990df943d2b5a999",
+  "problem_id": "two-sum",
+  "status": "Accepted",
+  "score": 100,
+  "passed": 3,
+  "total": 3,
+  "compile_output": "",
+  "results": [
+    {
+      "case_index": 0,
+      "status": "Accepted",
+      "expected": "[0,1]",
+      "actual": "[0,1]"
+    },
+    {
+      "case_index": 1,
+      "status": "Accepted",
+      "expected": "[1,2]",
+      "actual": "[1,2]"
+    },
+    {
+      "case_index": 2,
+      "status": "Accepted",
+      "expected": "[0,1]",
+      "actual": "[0,1]"
+    }
+  ],
+  "source_code": "#include <vector>\n#include <unordered_map>\nusing namespace std;\n\nclass Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        unordered_map<int, int> seen;\n        for (int i = 0; i < (int)nums.size(); ++i) {\n            int need = target - nums[i];\n            if (seen.count(need)) return {seen[need], i};\n            seen[nums[i]] = i;\n        }\n        return {};\n    }\n};",
+  "created_at": "2026-03-31T13:00:17.463967+00:00"
+}

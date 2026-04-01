@@ -1,0 +1,283 @@
+{
+  "id": "tomori-collection",
+  "title": "高松灯的收藏",
+  "difficulty": "Medium",
+  "tags": [
+    "动态规划"
+  ],
+  "description": "高松灯喜欢收集石头。某天她想把石头送给千早爱音，但书包容量不足，于是只能认真选取几个。设她共有 `n` 个石头，它们的重量和价值分别为 `weight[i]` 和 `price[i]`（`i = 0, 1, ..., n-1`）；书包的容量为 `capacity`。高松灯应该选取哪些石头装进书包才能使总价值最大？\n\n你需要返回一个长度为 `n` 的 `vector<int>`，其中第 `i` 位为 `1` 表示选择第 `i` 个石头，为 `0` 表示不选择。\n\n题目保证测试数据的最优解唯一。",
+  "input_format": "- 输入参数为 `n`、`capacity`、`weight`、`price`\n- `weight[i]` 表示第 `i` 个石头的重量\n- `price[i]` 表示第 `i` 个石头的价值",
+  "output_format": "- 返回一个长度为 `n` 的 `vector<int>`\n- `1` 表示该石头被装入书包，`0` 表示未装入",
+  "hint": "- 这是经典的 `0/1 背包` 问题\n- 可以先用动态规划求最大价值，再根据状态倒推选择方案",
+  "function_name": "maxPrice",
+  "return_type": "vector<int>",
+  "parameters": [
+    {
+      "name": "n",
+      "type": "int"
+    },
+    {
+      "name": "capacity",
+      "type": "int"
+    },
+    {
+      "name": "weight",
+      "type": "vector<int>"
+    },
+    {
+      "name": "price",
+      "type": "vector<int>"
+    }
+  ],
+  "test_cases": [
+    {
+      "input": [
+        3,
+        10,
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          20,
+          50,
+          15
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "input": [
+        4,
+        5,
+        [
+          2,
+          1,
+          3,
+          2
+        ],
+        [
+          12,
+          10,
+          20,
+          15
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "input": [
+        3,
+        0,
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          5,
+          10,
+          12
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        1,
+        5,
+        [
+          5
+        ],
+        [
+          9
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "input": [
+        3,
+        2,
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          10,
+          20,
+          30
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        4,
+        20,
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          3,
+          7,
+          9,
+          10
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "input": [
+        5,
+        9,
+        [
+          2,
+          3,
+          4,
+          5,
+          9
+        ],
+        [
+          6,
+          10,
+          12,
+          14,
+          25
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        5,
+        7,
+        [
+          1,
+          3,
+          4,
+          5,
+          2
+        ],
+        [
+          1,
+          4,
+          5,
+          7,
+          3
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "input": [
+        6,
+        10,
+        [
+          6,
+          3,
+          4,
+          2,
+          5,
+          1
+        ],
+        [
+          30,
+          14,
+          16,
+          9,
+          20,
+          4
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "input": [
+        7,
+        15,
+        [
+          5,
+          4,
+          6,
+          3,
+          2,
+          7,
+          1
+        ],
+        [
+          10,
+          40,
+          30,
+          50,
+          35,
+          45,
+          5
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "starter_code": "#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    vector<int> maxPrice(int n, int capacity, vector<int>& weight, vector<int>& price) {\n        return vector<int>(n, 0);\n    }\n};",
+  "metadata": {
+    "source": "frontend"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "two-sum",
+  "title": "两数之和",
+  "difficulty": "Easy",
+  "tags": [
+    "哈希表",
+    "数组"
+  ],
+  "description": "给定一个整数数组 nums 和一个整数 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的下标。你可以假设每种输入只会对应一个答案，且同一个元素不能重复使用。",
+  "input_format": "输入由两个参数组成：nums 为整数数组，target 为目标值。",
+  "output_format": "返回一个长度为 2 的整数数组，表示两个目标下标。",
+  "hint": "可以用哈希表记录已经遍历过的数字及其下标。",
+  "function_name": "twoSum",
+  "return_type": "vector<int>",
+  "parameters": [
+    {
+      "name": "nums",
+      "type": "vector<int>"
+    },
+    {
+      "name": "target",
+      "type": "int"
+    }
+  ],
+  "test_cases": [
+    {
+      "input": [
+        [
+          2,
+          7,
+          11,
+          15
+        ],
+        9
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "input": [
+        [
+          3,
+          2,
+          4
+        ],
+        6
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "input": [
+        [
+          3,
+          3
+        ],
+        6
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    }
+  ],
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "starter_code": "#include <vector>\n#include <unordered_map>\nusing namespace std;\n\nclass Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        return {};\n    }\n};",
+  "metadata": {
+    "source": "builtin"
+  }
+}

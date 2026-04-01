@@ -1,0 +1,19 @@
+{
+  "id": "4d92b366c8b345179601ca1024763848",
+  "problem_id": "two-sum",
+  "status": "Wrong Answer",
+  "score": 0,
+  "passed": 0,
+  "total": 3,
+  "compile_output": "",
+  "results": [
+    {
+      "case_index": 0,
+      "status": "Wrong Answer",
+      "expected": "[0,1]",
+      "actual": "[1]"
+    }
+  ],
+  "source_code": "#include <vector>\n#include <unordered_map>\nusing namespace std;\n\nclass Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        return {1};\n    }\n};",
+  "created_at": "2026-03-31T13:19:21.450269+00:00"
+}

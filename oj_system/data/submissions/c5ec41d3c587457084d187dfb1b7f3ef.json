@@ -1,0 +1,19 @@
+{
+  "id": "c5ec41d3c587457084d187dfb1b7f3ef",
+  "problem_id": "tomori-collection",
+  "status": "Wrong Answer",
+  "score": 0,
+  "passed": 0,
+  "total": 10,
+  "compile_output": "",
+  "results": [
+    {
+      "case_index": 0,
+      "status": "Wrong Answer",
+      "expected": "[1,1,0]",
+      "actual": "[0,0,0]"
+    }
+  ],
+  "source_code": "#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    vector<int> maxPrice(int n, int capacity, vector<int>& weight, vector<int>& price) {\n        return vector<int>(n, 0);\n    }\n};",
+  "created_at": "2026-03-31T13:48:28.677972+00:00"
+}
