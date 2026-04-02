@@ -14,5 +14,5 @@
 
 | 名称               | 目录位置 | 简介 |
 | ------------------ | -------- | ---- |
-| 简单会议室预约系统 | meeting_room        | [![README](https://img.shields.io/badge/README.md-blue)](./meeting_room/README.md)    |
+| 会议室预订系统 | meeting_room        | [![README](https://img.shields.io/badge/README.md-blue)](./meeting_room/README.md)    |
 | 轻量级OJ系统       | oj_system          | [![README](https://img.shields.io/badge/README.md-blue)](./oj_system/README.md)  |
