@@ -1,0 +1,2838 @@
+[
+  {
+    "case_id": "5.1-A",
+    "title": "基线对比 - FIFO",
+    "scenario": "peak_load.json",
+    "dispatcher": "fifo",
+    "purpose": "作为基线策略，观察高峰混合负载下的等待时长、吞吐和公平性表现。",
+    "steps": [
+      "加载 peak_load 场景，包含普通工单集中涌入和少量 P1 工单穿插。",
+      "使用 FIFO 策略运行完整仿真。",
+      "记录 README 第 4 节要求的全部指标。"
+    ],
+    "observations": [
+      "P1 SLA 达成率为 0.00。",
+      "普通工单最长等待 14.0 分钟。",
+      "队列平均长度为 2.952。"
+    ],
+    "result": {
+      "scenario_name": "peak_load_demo",
+      "dispatcher": "fifo",
+      "final_time": 21,
+      "queue_size": 0,
+      "agents": [
+        {
+          "agent_id": "agent-0",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-1",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-2",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        }
+      ],
+      "tickets": [
+        {
+          "ticket_id": "ticket-1",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-2",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-3",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-4",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 8,
+          "completed_time": 16,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-5",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 8,
+          "completed_time": 16,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-6",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 8,
+          "completed_time": 16,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-7",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 16,
+          "completed_time": 21,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-8",
+          "priority": "P2",
+          "category": "login",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 16,
+          "completed_time": 20,
+          "actual_handle_time": 4,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-9",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 3,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 16,
+          "completed_time": 21,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        }
+      ],
+      "logs": [
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-1",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-2",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-3",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-4",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-5",
+          "details": {
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-6",
+          "details": {
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-7",
+          "details": {
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-8",
+          "details": {
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 3,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-9",
+          "details": {
+            "queue_size": 6
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 20,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        }
+      ],
+      "metrics": {
+        "response": {
+          "p1_avg_wait_minutes": 13.5,
+          "p1_p95_wait_minutes": 14.0,
+          "p1_sla_rate": 0.0
+        },
+        "efficiency": {
+          "avg_wait_minutes": 6.888888888888889,
+          "avg_completion_minutes": 13.777777777777779,
+          "avg_queue_length": 2.9523809523809526,
+          "reroute_rate": 0.0
+        },
+        "utilization": {
+          "avg_agent_utilization": 0.9841269841269842,
+          "agent_utilization_variance": 0.0005039052658100288,
+          "peak_hour_throughput": 9
+        },
+        "fairness": {
+          "max_tickets_per_agent": 3,
+          "min_tickets_per_agent": 3,
+          "ticket_count_variance": 0.0,
+          "longest_normal_wait_minutes": 14.0,
+          "starvation_ticket_count": 2
+        },
+        "misassignment": {
+          "mismatch_assignment_count": 0,
+          "reroute_extra_cost_minutes": 0
+        }
+      }
+    }
+  },
+  {
+    "case_id": "5.1-B",
+    "title": "基线对比 - PriorityFirst",
+    "scenario": "peak_load.json",
+    "dispatcher": "priority_first",
+    "purpose": "使用纯优先级基线策略，对比紧急工单响应和普通工单积压情况。",
+    "steps": [
+      "使用与 FIFO 相同的 peak_load 场景。",
+      "切换为 priority_first 策略运行仿真。",
+      "与 FIFO 的输出指标做横向比较。"
+    ],
+    "observations": [
+      "P1 平均等待 5.5 分钟。",
+      "全部工单平均完成时长 12.667 分钟。",
+      "饥饿工单数 0。"
+    ],
+    "result": {
+      "scenario_name": "peak_load_demo",
+      "dispatcher": "priority_first",
+      "final_time": 21,
+      "queue_size": 0,
+      "agents": [
+        {
+          "agent_id": "agent-0",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-1",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-2",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        }
+      ],
+      "tickets": [
+        {
+          "ticket_id": "ticket-1",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-2",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-3",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-4",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 12,
+          "completed_time": 20,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-5",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 13,
+          "completed_time": 21,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-6",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 13,
+          "completed_time": 21,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-7",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 8,
+          "completed_time": 13,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-8",
+          "priority": "P2",
+          "category": "login",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 8,
+          "completed_time": 12,
+          "actual_handle_time": 4,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-9",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 3,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 8,
+          "completed_time": 13,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        }
+      ],
+      "logs": [
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-1",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-2",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-3",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-4",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-5",
+          "details": {
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-6",
+          "details": {
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-7",
+          "details": {
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-8",
+          "details": {
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 3,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-9",
+          "details": {
+            "queue_size": 6
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 12,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 12,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 20,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        }
+      ],
+      "metrics": {
+        "response": {
+          "p1_avg_wait_minutes": 5.5,
+          "p1_p95_wait_minutes": 6.0,
+          "p1_sla_rate": 0.5
+        },
+        "efficiency": {
+          "avg_wait_minutes": 5.777777777777778,
+          "avg_completion_minutes": 12.666666666666666,
+          "avg_queue_length": 2.4761904761904763,
+          "reroute_rate": 0.0
+        },
+        "utilization": {
+          "avg_agent_utilization": 0.9841269841269842,
+          "agent_utilization_variance": 0.0005039052658100288,
+          "peak_hour_throughput": 9
+        },
+        "fairness": {
+          "max_tickets_per_agent": 3,
+          "min_tickets_per_agent": 3,
+          "ticket_count_variance": 0.0,
+          "longest_normal_wait_minutes": 12.0,
+          "starvation_ticket_count": 0
+        },
+        "misassignment": {
+          "mismatch_assignment_count": 0,
+          "reroute_extra_cost_minutes": 0
+        }
+      }
+    }
+  },
+  {
+    "case_id": "5.1-C",
+    "title": "基线对比 - LeastLoaded",
+    "scenario": "peak_load.json",
+    "dispatcher": "least_loaded",
+    "purpose": "使用最空闲客服优先策略，对比利用率均衡和吞吐表现。",
+    "steps": [
+      "使用与 FIFO 相同的 peak_load 场景。",
+      "切换为 least_loaded 策略运行仿真。",
+      "观察利用率方差、单量方差和吞吐量。"
+    ],
+    "observations": [
+      "客服利用率方差 0.000504。",
+      "每位客服处理单量方差 0.000000。",
+      "高峰小时吞吐量 9。"
+    ],
+    "result": {
+      "scenario_name": "peak_load_demo",
+      "dispatcher": "least_loaded",
+      "final_time": 21,
+      "queue_size": 0,
+      "agents": [
+        {
+          "agent_id": "agent-0",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-1",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-2",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        }
+      ],
+      "tickets": [
+        {
+          "ticket_id": "ticket-1",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-2",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-3",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-4",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 8,
+          "completed_time": 16,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-5",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 8,
+          "completed_time": 16,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-6",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 8,
+          "completed_time": 16,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-7",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 16,
+          "completed_time": 21,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-8",
+          "priority": "P2",
+          "category": "login",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 16,
+          "completed_time": 20,
+          "actual_handle_time": 4,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-9",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 3,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 16,
+          "completed_time": 21,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        }
+      ],
+      "logs": [
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-1",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-2",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-3",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-4",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-5",
+          "details": {
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-6",
+          "details": {
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-7",
+          "details": {
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-8",
+          "details": {
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 3,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-9",
+          "details": {
+            "queue_size": 6
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 20,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        }
+      ],
+      "metrics": {
+        "response": {
+          "p1_avg_wait_minutes": 13.5,
+          "p1_p95_wait_minutes": 14.0,
+          "p1_sla_rate": 0.0
+        },
+        "efficiency": {
+          "avg_wait_minutes": 6.888888888888889,
+          "avg_completion_minutes": 13.777777777777779,
+          "avg_queue_length": 2.9523809523809526,
+          "reroute_rate": 0.0
+        },
+        "utilization": {
+          "avg_agent_utilization": 0.9841269841269842,
+          "agent_utilization_variance": 0.0005039052658100288,
+          "peak_hour_throughput": 9
+        },
+        "fairness": {
+          "max_tickets_per_agent": 3,
+          "min_tickets_per_agent": 3,
+          "ticket_count_variance": 0.0,
+          "longest_normal_wait_minutes": 14.0,
+          "starvation_ticket_count": 2
+        },
+        "misassignment": {
+          "mismatch_assignment_count": 0,
+          "reroute_extra_cost_minutes": 0
+        }
+      }
+    }
+  },
+  {
+    "case_id": "5.1-D",
+    "title": "基线对比 - BalancedDispatcher",
+    "scenario": "peak_load.json",
+    "dispatcher": "balanced",
+    "purpose": "运行主策略，验证在 SLA、等待时长和均衡性之间的综合表现。",
+    "steps": [
+      "使用与其他基线相同的 peak_load 场景。",
+      "切换为 balanced 策略运行仿真。",
+      "对比 P1 响应、队列积压和公平性指标。"
+    ],
+    "observations": [
+      "P1 P95 等待 6.0 分钟。",
+      "全部工单平均等待 5.778 分钟。",
+      "最长普通工单等待 12.0 分钟。"
+    ],
+    "result": {
+      "scenario_name": "peak_load_demo",
+      "dispatcher": "balanced",
+      "final_time": 21,
+      "queue_size": 0,
+      "agents": [
+        {
+          "agent_id": "agent-0",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-1",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-2",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        }
+      ],
+      "tickets": [
+        {
+          "ticket_id": "ticket-1",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-2",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-3",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-4",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 12,
+          "completed_time": 20,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-5",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 13,
+          "completed_time": 21,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-6",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 13,
+          "completed_time": 21,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-7",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 8,
+          "completed_time": 13,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-8",
+          "priority": "P2",
+          "category": "login",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 8,
+          "completed_time": 12,
+          "actual_handle_time": 4,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-9",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 3,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 8,
+          "completed_time": 13,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        }
+      ],
+      "logs": [
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-1",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-2",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-3",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-4",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-5",
+          "details": {
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-6",
+          "details": {
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-7",
+          "details": {
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-8",
+          "details": {
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 3,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-9",
+          "details": {
+            "queue_size": 6
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 12,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 12,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 20,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        }
+      ],
+      "metrics": {
+        "response": {
+          "p1_avg_wait_minutes": 5.5,
+          "p1_p95_wait_minutes": 6.0,
+          "p1_sla_rate": 0.5
+        },
+        "efficiency": {
+          "avg_wait_minutes": 5.777777777777778,
+          "avg_completion_minutes": 12.666666666666666,
+          "avg_queue_length": 2.4761904761904763,
+          "reroute_rate": 0.0
+        },
+        "utilization": {
+          "avg_agent_utilization": 0.9841269841269842,
+          "agent_utilization_variance": 0.0005039052658100288,
+          "peak_hour_throughput": 9
+        },
+        "fairness": {
+          "max_tickets_per_agent": 3,
+          "min_tickets_per_agent": 3,
+          "ticket_count_variance": 0.0,
+          "longest_normal_wait_minutes": 12.0,
+          "starvation_ticket_count": 0
+        },
+        "misassignment": {
+          "mismatch_assignment_count": 0,
+          "reroute_extra_cost_minutes": 0
+        }
+      }
+    }
+  },
+  {
+    "case_id": "5.2",
+    "title": "高峰场景测试",
+    "scenario": "peak_load.json",
+    "dispatcher": "balanced",
+    "purpose": "验证白天普通工单集中涌入、穿插少量高优 P1 工单时，P1 是否仍被较快响应，普通工单是否严重积压。",
+    "steps": [
+      "加载 peak_load 场景。",
+      "使用 balanced 策略运行仿真。",
+      "检查 P1 SLA、普通工单最长等待、平均队列长度和饥饿工单数。"
+    ],
+    "observations": [
+      "P1 SLA 达成率 0.50。",
+      "普通工单最长等待 12.0 分钟。",
+      "饥饿工单数 0。"
+    ],
+    "result": {
+      "scenario_name": "peak_load_demo",
+      "dispatcher": "balanced",
+      "final_time": 21,
+      "queue_size": 0,
+      "agents": [
+        {
+          "agent_id": "agent-0",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-1",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-2",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        }
+      ],
+      "tickets": [
+        {
+          "ticket_id": "ticket-1",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-2",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-3",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-4",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 12,
+          "completed_time": 20,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-5",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 13,
+          "completed_time": 21,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-6",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 13,
+          "completed_time": 21,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-7",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 8,
+          "completed_time": 13,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-8",
+          "priority": "P2",
+          "category": "login",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 8,
+          "completed_time": 12,
+          "actual_handle_time": 4,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-9",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 3,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 8,
+          "completed_time": 13,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        }
+      ],
+      "logs": [
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-1",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-2",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-3",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-4",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-5",
+          "details": {
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-6",
+          "details": {
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-7",
+          "details": {
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-8",
+          "details": {
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 3,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-9",
+          "details": {
+            "queue_size": 6
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 12,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 12,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 20,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        }
+      ],
+      "metrics": {
+        "response": {
+          "p1_avg_wait_minutes": 5.5,
+          "p1_p95_wait_minutes": 6.0,
+          "p1_sla_rate": 0.5
+        },
+        "efficiency": {
+          "avg_wait_minutes": 5.777777777777778,
+          "avg_completion_minutes": 12.666666666666666,
+          "avg_queue_length": 2.4761904761904763,
+          "reroute_rate": 0.0
+        },
+        "utilization": {
+          "avg_agent_utilization": 0.9841269841269842,
+          "agent_utilization_variance": 0.0005039052658100288,
+          "peak_hour_throughput": 9
+        },
+        "fairness": {
+          "max_tickets_per_agent": 3,
+          "min_tickets_per_agent": 3,
+          "ticket_count_variance": 0.0,
+          "longest_normal_wait_minutes": 12.0,
+          "starvation_ticket_count": 0
+        },
+        "misassignment": {
+          "mismatch_assignment_count": 0,
+          "reroute_extra_cost_minutes": 0
+        }
+      }
+    }
+  },
+  {
+    "case_id": "5.3",
+    "title": "离线场景测试",
+    "scenario": "offline_requeue.json",
+    "dispatcher": "fifo",
+    "purpose": "验证客服中途离线时，正在处理的工单是否被正确回收，系统能否继续稳定分配，SLA 是否受到影响。",
+    "steps": [
+      "加载 offline_requeue 场景，其中客服在处理过程中离线后再恢复。",
+      "使用 FIFO 策略运行仿真。",
+      "检查回收日志、最终完成状态以及响应/效率指标变化。"
+    ],
+    "observations": [
+      "日志中出现 `ticket_requeued_from_offline`，说明工单被正确回收。",
+      "最终队列长度 0，系统恢复后仍完成了所有工单。",
+      "平均完成时长 21.0 分钟。"
+    ],
+    "result": {
+      "scenario_name": "offline_requeue_demo",
+      "dispatcher": "fifo",
+      "final_time": 21,
+      "queue_size": 0,
+      "agents": [
+        {
+          "agent_id": "agent-0",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 1
+        }
+      ],
+      "tickets": [
+        {
+          "ticket_id": "ticket-1",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 0,
+          "completed_time": 21,
+          "actual_handle_time": 10,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        }
+      ],
+      "logs": [
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-1",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 3,
+          "action": "agent_offline",
+          "ticket_id": "",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 3,
+          "action": "ticket_requeued_from_offline",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 4,
+          "action": "agent_online",
+          "ticket_id": "",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 4,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        }
+      ],
+      "metrics": {
+        "response": {
+          "p1_avg_wait_minutes": 0.0,
+          "p1_p95_wait_minutes": 0.0,
+          "p1_sla_rate": 0.0
+        },
+        "efficiency": {
+          "avg_wait_minutes": 0.0,
+          "avg_completion_minutes": 21.0,
+          "avg_queue_length": 0.047619047619047616,
+          "reroute_rate": 0.0
+        },
+        "utilization": {
+          "avg_agent_utilization": 0.9523809523809523,
+          "agent_utilization_variance": 0.0,
+          "peak_hour_throughput": 1
+        },
+        "fairness": {
+          "max_tickets_per_agent": 1,
+          "min_tickets_per_agent": 1,
+          "ticket_count_variance": 0.0,
+          "longest_normal_wait_minutes": 0.0,
+          "starvation_ticket_count": 0
+        },
+        "misassignment": {
+          "mismatch_assignment_count": 0,
+          "reroute_extra_cost_minutes": 0
+        }
+      }
+    }
+  },
+  {
+    "case_id": "5.4",
+    "title": "转派场景测试",
+    "scenario": "reroute_case.json",
+    "dispatcher": "fifo",
+    "purpose": "验证技能不完全匹配时的错误分配次数、转派率，以及转派对整体效率的影响。",
+    "steps": [
+      "加载 reroute_case 场景，初始只有不匹配客服在线，匹配客服稍后上线。",
+      "使用 FIFO 策略运行仿真。",
+      "统计错误分配次数、转派率、额外处理成本和完成时长。"
+    ],
+    "observations": [
+      "技能不匹配分配次数 1。",
+      "转派率 1.00。",
+      "转派额外成本 5 分钟。"
+    ],
+    "result": {
+      "scenario_name": "reroute_demo",
+      "dispatcher": "fifo",
+      "final_time": 16,
+      "queue_size": 0,
+      "agents": [
+        {
+          "agent_id": "agent-0",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 0
+        },
+        {
+          "agent_id": "agent-1",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 1
+        }
+      ],
+      "tickets": [
+        {
+          "ticket_id": "ticket-1",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 6,
+          "completed_time": 16,
+          "actual_handle_time": 5,
+          "reroute_count": 1,
+          "remaining_handle_time": 0
+        }
+      ],
+      "logs": [
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-1",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": false,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_rerouted",
+          "ticket_id": "ticket-1",
+          "details": {
+            "reroute_count": 1,
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 6,
+          "action": "agent_online",
+          "ticket_id": "",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 6,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 16,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        }
+      ],
+      "metrics": {
+        "response": {
+          "p1_avg_wait_minutes": 0.0,
+          "p1_p95_wait_minutes": 0.0,
+          "p1_sla_rate": 0.0
+        },
+        "efficiency": {
+          "avg_wait_minutes": 6.0,
+          "avg_completion_minutes": 16.0,
+          "avg_queue_length": 0.3125,
+          "reroute_rate": 1.0
+        },
+        "utilization": {
+          "avg_agent_utilization": 0.8125,
+          "agent_utilization_variance": 0.03515625,
+          "peak_hour_throughput": 1
+        },
+        "fairness": {
+          "max_tickets_per_agent": 1,
+          "min_tickets_per_agent": 0,
+          "ticket_count_variance": 0.25,
+          "longest_normal_wait_minutes": 6.0,
+          "starvation_ticket_count": 0
+        },
+        "misassignment": {
+          "mismatch_assignment_count": 1,
+          "reroute_extra_cost_minutes": 5
+        }
+      }
+    }
+  },
+  {
+    "case_id": "5.5",
+    "title": "结果可复现测试",
+    "scenario": "peak_load.json",
+    "dispatcher": "balanced",
+    "purpose": "验证在相同随机种子下，日志与指标统计可以重复生成。",
+    "steps": [
+      "加载相同的 peak_load 场景，保留相同随机种子。",
+      "使用 balanced 策略连续运行两次仿真。",
+      "比较两次运行的日志和指标对象是否完全一致。"
+    ],
+    "observations": [
+      "两次运行日志是否一致: True.",
+      "两次运行指标是否一致: True.",
+      "该测试满足 README 对可复现性的要求。"
+    ],
+    "result": {
+      "scenario_name": "peak_load_demo",
+      "dispatcher": "balanced",
+      "final_time": 21,
+      "queue_size": 0,
+      "agents": [
+        {
+          "agent_id": "agent-0",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-1",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        },
+        {
+          "agent_id": "agent-2",
+          "status": "online",
+          "max_concurrent": 1,
+          "handled_ticket_count": 3
+        }
+      ],
+      "tickets": [
+        {
+          "ticket_id": "ticket-1",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-2",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-3",
+          "priority": "P2",
+          "category": "billing",
+          "created_time": 0,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 0,
+          "completed_time": 8,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-4",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 12,
+          "completed_time": 20,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-5",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 13,
+          "completed_time": 21,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-6",
+          "priority": "P3",
+          "category": "billing",
+          "created_time": 1,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 13,
+          "completed_time": 21,
+          "actual_handle_time": 8,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-7",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-0",
+          "assigned_time": 8,
+          "completed_time": 13,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-8",
+          "priority": "P2",
+          "category": "login",
+          "created_time": 2,
+          "status": "completed",
+          "assigned_agent_id": "agent-2",
+          "assigned_time": 8,
+          "completed_time": 12,
+          "actual_handle_time": 4,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        },
+        {
+          "ticket_id": "ticket-9",
+          "priority": "P1",
+          "category": "billing",
+          "created_time": 3,
+          "status": "completed",
+          "assigned_agent_id": "agent-1",
+          "assigned_time": 8,
+          "completed_time": 13,
+          "actual_handle_time": 5,
+          "reroute_count": 0,
+          "remaining_handle_time": 0
+        }
+      ],
+      "logs": [
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-1",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-2",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-3",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 0,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-4",
+          "details": {
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-5",
+          "details": {
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 1,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-6",
+          "details": {
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-7",
+          "details": {
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 2,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-8",
+          "details": {
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 3,
+          "action": "ticket_arrived",
+          "ticket_id": "ticket-9",
+          "details": {
+            "queue_size": 6
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-1",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 5
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-2",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 4
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-3",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 8,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 3
+          }
+        },
+        {
+          "time": 12,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-8",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 12,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-2",
+            "matched_skill": true,
+            "queue_size": 2
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-7",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-0",
+            "matched_skill": true,
+            "queue_size": 1
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-9",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        },
+        {
+          "time": 13,
+          "action": "ticket_assigned",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-1",
+            "matched_skill": true,
+            "queue_size": 0
+          }
+        },
+        {
+          "time": 20,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-4",
+          "details": {
+            "agent_id": "agent-2"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-5",
+          "details": {
+            "agent_id": "agent-0"
+          }
+        },
+        {
+          "time": 21,
+          "action": "ticket_completed",
+          "ticket_id": "ticket-6",
+          "details": {
+            "agent_id": "agent-1"
+          }
+        }
+      ],
+      "metrics": {
+        "response": {
+          "p1_avg_wait_minutes": 5.5,
+          "p1_p95_wait_minutes": 6.0,
+          "p1_sla_rate": 0.5
+        },
+        "efficiency": {
+          "avg_wait_minutes": 5.777777777777778,
+          "avg_completion_minutes": 12.666666666666666,
+          "avg_queue_length": 2.4761904761904763,
+          "reroute_rate": 0.0
+        },
+        "utilization": {
+          "avg_agent_utilization": 0.9841269841269842,
+          "agent_utilization_variance": 0.0005039052658100288,
+          "peak_hour_throughput": 9
+        },
+        "fairness": {
+          "max_tickets_per_agent": 3,
+          "min_tickets_per_agent": 3,
+          "ticket_count_variance": 0.0,
+          "longest_normal_wait_minutes": 12.0,
+          "starvation_ticket_count": 0
+        },
+        "misassignment": {
+          "mismatch_assignment_count": 0,
+          "reroute_extra_cost_minutes": 0
+        }
+      }
+    }
+  }
+]

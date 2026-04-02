@@ -1,0 +1,42 @@
+{
+  "name": "least_loaded_compare_demo",
+  "settings": {
+    "seed": 4,
+    "actual_handle_time_variation_pct": 0.0
+  },
+  "agents": [
+    {
+      "agent_id": "agent-0",
+      "skill_set": ["billing"],
+      "shift_start": 0,
+      "shift_end": 480,
+      "max_concurrent": 2,
+      "status": "online"
+    },
+    {
+      "agent_id": "agent-1",
+      "skill_set": ["billing"],
+      "shift_start": 0,
+      "shift_end": 480,
+      "max_concurrent": 1,
+      "status": "online"
+    }
+  ],
+  "tickets": [
+    {
+      "ticket_id": "ticket-1",
+      "priority": "P2",
+      "category": "billing",
+      "created_time": 0,
+      "estimated_handle_time": 5
+    },
+    {
+      "ticket_id": "ticket-2",
+      "priority": "P2",
+      "category": "billing",
+      "created_time": 0,
+      "estimated_handle_time": 5
+    }
+  ],
+  "agent_events": []
+}

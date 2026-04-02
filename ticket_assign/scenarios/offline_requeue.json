@@ -1,0 +1,40 @@
+{
+  "name": "offline_requeue_demo",
+  "settings": {
+    "seed": 1,
+    "actual_handle_time_variation_pct": 0.0,
+    "context_switch_penalty_minutes": 10
+  },
+  "agents": [
+    {
+      "agent_id": "agent-0",
+      "skill_set": ["billing"],
+      "shift_start": 0,
+      "shift_end": 480,
+      "max_concurrent": 1,
+      "status": "online"
+    }
+  ],
+  "tickets": [
+    {
+      "ticket_id": "ticket-1",
+      "priority": "P2",
+      "category": "billing",
+      "created_time": 0,
+      "estimated_handle_time": 10
+    }
+  ],
+  "agent_events": [
+    {
+      "time": 3,
+      "agent_id": "agent-0",
+      "status": "offline"
+    },
+    {
+      "time": 4,
+      "agent_id": "agent-0",
+      "status": "online"
+    }
+  ]
+}
+

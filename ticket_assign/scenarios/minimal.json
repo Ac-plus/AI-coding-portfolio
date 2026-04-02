@@ -1,0 +1,49 @@
+{
+  "name": "minimal_fifo_demo",
+  "settings": {
+    "seed": 7,
+    "actual_handle_time_variation_pct": 0.0
+  },
+  "agents": [
+    {
+      "agent_id": "agent-0",
+      "skill_set": ["billing"],
+      "shift_start": 0,
+      "shift_end": 480,
+      "max_concurrent": 1,
+      "status": "online"
+    },
+    {
+      "agent_id": "agent-1",
+      "skill_set": ["login"],
+      "shift_start": 0,
+      "shift_end": 480,
+      "max_concurrent": 1,
+      "status": "online"
+    }
+  ],
+  "tickets": [
+    {
+      "ticket_id": "ticket-1",
+      "priority": "P2",
+      "category": "billing",
+      "created_time": 0,
+      "estimated_handle_time": 10
+    },
+    {
+      "ticket_id": "ticket-2",
+      "priority": "P3",
+      "category": "billing",
+      "created_time": 1,
+      "estimated_handle_time": 5
+    },
+    {
+      "ticket_id": "ticket-3",
+      "priority": "P1",
+      "category": "login",
+      "created_time": 2,
+      "estimated_handle_time": 3
+    }
+  ],
+  "agent_events": []
+}

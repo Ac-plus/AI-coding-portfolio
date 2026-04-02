@@ -1,0 +1,46 @@
+{
+  "name": "reroute_demo",
+  "settings": {
+    "seed": 2,
+    "actual_handle_time_variation_pct": 0.0,
+    "allow_mismatch_after_minutes": 0,
+    "reroute_penalty_minutes": 5,
+    "max_reroutes": 1,
+    "require_matching_after_reroute": true
+  },
+  "agents": [
+    {
+      "agent_id": "agent-0",
+      "skill_set": ["login"],
+      "shift_start": 0,
+      "shift_end": 480,
+      "max_concurrent": 1,
+      "status": "online"
+    },
+    {
+      "agent_id": "agent-1",
+      "skill_set": ["billing"],
+      "shift_start": 0,
+      "shift_end": 480,
+      "max_concurrent": 1,
+      "status": "offline"
+    }
+  ],
+  "tickets": [
+    {
+      "ticket_id": "ticket-1",
+      "priority": "P2",
+      "category": "billing",
+      "created_time": 0,
+      "estimated_handle_time": 5
+    }
+  ],
+  "agent_events": [
+    {
+      "time": 6,
+      "agent_id": "agent-1",
+      "status": "online"
+    }
+  ]
+}
+
