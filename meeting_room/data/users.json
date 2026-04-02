@@ -1,0 +1,17 @@
+[
+  {
+    "id": "user-1",
+    "name": "Alice",
+    "team": "Platform"
+  },
+  {
+    "id": "user-2",
+    "name": "Bob",
+    "team": "Operations"
+  },
+  {
+    "id": "user-3",
+    "name": "Carol",
+    "team": "Product"
+  }
+]
