@@ -16,3 +16,10 @@
 | ------------------ | -------- | ---- |
 | 会议室预订系统 | meeting_room        | [![README](https://img.shields.io/badge/README.md-blue)](./meeting_room/README.md)    |
 | 轻量级OJ系统       | oj_system          | [![README](https://img.shields.io/badge/README.md-blue)](./oj_system/README.md)  |
+
+每个 project 均包含源码和文档等交付物。其中，文档一般包括：
+
+- `README.md`：标准化的开发需求
+- `开发规划.md`：根据需求创建的详细计划，包括模块设计、目录规划、开发步骤等
+- `测试报告.md`：系统测试方法及指标统计等
+- `开发总结.md`：需求完成情况表、架构与方法实现、已知问题与下一步优化方向等
